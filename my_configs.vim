@@ -3,4 +3,4 @@ set mouse=a
 set commentstring=//\ %s
 colorscheme monokai
 
-noremap <Leader>a :Ack <cword><cr>
+noremap <Leader>a :A<cr>
