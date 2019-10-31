@@ -1,6 +1,6 @@
 set number
 set mouse=a
-setlocal commentstring=//\ %s
+set commentstring=//\ %s
 colorscheme monokai
 
 noremap <Leader>a :Ack <cword><cr>
