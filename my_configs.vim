@@ -35,5 +35,3 @@ nnoremap <leader>j :YcmCompleter GoTo<cr>
 nnoremap <leader>jt :YcmCompleter GetType<CR>
 nnoremap <leader>jf :YcmCompleter FixIt<CR>
 nnoremap <Leader>jd :YcmDiags<cr>
-
-
