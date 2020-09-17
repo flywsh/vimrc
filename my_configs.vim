@@ -1,4 +1,5 @@
 set number
+set relativenumber
 set mouse=a
 set cursorline
 set commentstring=//\ %s
