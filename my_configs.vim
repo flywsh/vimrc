@@ -7,6 +7,8 @@ colorscheme monokai
 
 nnoremap <Leader>a :A<cr>
 
+let g:ycm_auto_hover=''
+let g:ycm_show_diagnostics_ui = 0
 let g:ycm_path_to_python_interpreter="/usr/bin/python3"
 let g:ycm_clangd_binary_path="clangd"
 
