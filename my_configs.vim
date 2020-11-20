@@ -3,6 +3,10 @@ set relativenumber
 set mouse=a
 set cursorline
 set commentstring=//\ %s
+
+set path+=**
+set makeprg=bash\ mr.sh
+
 colorscheme monokai
 
 nnoremap <Leader>a :A<cr>
