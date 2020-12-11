@@ -11,7 +11,7 @@ colorscheme monokai
 
 nnoremap <Leader>a :A<cr>
 
-if isdirectory("~/.vim/bundle/YouCompleteMe/autoload/youcompleteme.vim")
+if filereadable(expand("~/.vim/bundle/YouCompleteMe/autoload/youcompleteme.vim"))
     let g:ycm_auto_hover=''
     let g:ycm_show_diagnostics_ui = 0
     let g:ycm_path_to_python_interpreter="/usr/bin/python3"
