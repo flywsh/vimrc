@@ -8,6 +8,7 @@ set path+=**
 set makeprg=bash\ mr.sh
 
 colorscheme monokai
+set colorcolumn=80
 
 nnoremap <Leader>a :A<cr>
 
