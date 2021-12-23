@@ -4,6 +4,9 @@ set mouse=a
 set cursorline
 set commentstring=//\ %s
 
+set expandtab
+set tabstop=4
+
 set path+=**
 set makeprg=bash\ mr.sh
 
