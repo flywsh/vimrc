@@ -11,13 +11,24 @@ set list
 set listchars=tab:>-
 
 set path+=**
-set makeprg=bash\ mr.sh
+set makeprg=bash\ bd
 
-colorscheme monokai
+let g:lightline = {'colorscheme': 'seoul256'}
+" set noshowmode
+
 colorscheme gruvbox
-set colorcolumn=80
+set colorcolumn=120
+
+nnoremap <Leader>c :close<cr>
 
 nnoremap <Leader>a :A<cr>
+nnoremap <Leader>as :AS<cr>
+nnoremap <Leader>av :AV<cr>
+nnoremap <Leader>at :AT<cr>
+
+nnoremap <Leader>ga :AckAdd
+nnoremap <Leader>gl :LAck
+nnoremap <Leader>gla :LAckAdd
 
 nnoremap <Leader>dg :diffget<cr>
 nnoremap <Leader>dp :diffput<cr>
@@ -25,12 +36,21 @@ nnoremap <Leader>dp :diffput<cr>
 let g:ctrlp_max_files=0
 let g:ctrlp_custom_ignore='node_modules\|DS_Store\|build'
 
+" ALE settings:
+let g:ale_cpp_clangd_executable='/opt/bats/bin/clangd'
+let g:ale_cpp_clangd_options='-j=1 --pch-storage=memory'
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_insert_leave = 0
+let g:ale_lint_on_enter = 0
+let g:ale_lint_delay = 1000
+let g:ale_c_parse_compile_commands = 1
+
 if filereadable(expand("~/.vim/bundle/YouCompleteMe/autoload/youcompleteme.vim"))
     let g:ycm_auto_hover=''
     let g:ycm_show_diagnostics_ui = 0
     let g:ycm_path_to_python_interpreter="/usr/bin/python3"
-    let g:ycm_clangd_binary_path="clangd"
-    let g:ycm_clangd_args=['-j=5', '-pretty']
+    let g:ycm_clangd_binary_path="/opt/bats/bin/clangd"
+    let g:ycm_clangd_args=['-j=1', '-pretty', '--pch-storage=memory', '--background-index=false']
     let g:ycm_confirm_extra_conf=0
 
     let g:ycm_filetype_blacklist = {
@@ -64,14 +84,30 @@ if filereadable(expand("~/.vim/bundle/YouCompleteMe/autoload/youcompleteme.vim")
     nnoremap <Leader>jd :YcmDiags<cr>
 endif
 
+let $TMPDIR='/var/tmp/'
 let maplocalleader='\\'
 
 let g:vimspector_enable_mappings='HUMAN'
+
 nnoremap <Leader>st :VimspectorReset<cr>
-nmap <LocalLeader>- <Plug>VimspectorUpFrame
-nmap <LocalLeader>+ <Plug>VimspectorDownFrame
+nnoremap <Leader>4 <Plug>VimspectorRestart
+" nmap <LocalLeader>- <Plug>VimspectorUpFrame
+nmap <Leader>- <Plug>VimspectorUpFrame
+" nmap <LocalLeader>= <Plug>VimspectorDownFrame
+nmap <Leader>= <Plug>VimspectorDownFrame
 nmap <Leader>i <Plug>VimspectorBalloonEval
 xmap <Leader>i <Plug>VimspectorBalloonEval
-nmap <Leader>b <Plug>VimspectorBreakpoints
+nmap <Leader>bb <Plug>VimspectorBreakpoints
+
+let g:asyncrun_open = 12
+nmap <Leader>b :AsyncRun ~/.local/bin/bd<cr>
+nnoremap <leader>v :call asyncrun#quickfix_toggle(12)<CR>
 
 autocmd BufWritePre * :%s/\s\+$//e
+
+au BufRead,BufNewFile *.inc set filetype=cpp
+
+imap <C-h> <C-o>h
+imap <C-j> <C-o>j
+imap <C-k> <C-o>k
+imap <C-l> <C-o>l
