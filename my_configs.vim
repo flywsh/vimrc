@@ -6,6 +6,7 @@ set commentstring=//\ %s
 
 set expandtab
 set tabstop=4
+set termguicolors
 
 set list
 set listchars=tab:>-
@@ -13,7 +14,11 @@ set listchars=tab:>-
 set path+=**
 set makeprg=bash\ bd
 
-let g:lightline = {'colorscheme': 'seoul256'}
+let g:lightline = {'colorscheme': 'PaperColor'}
+if !has('g:lightline.component')
+    let g:lightline.component={}
+endif
+let g:lightline.component.filename='%F'
 " set noshowmode
 
 colorscheme gruvbox
@@ -44,6 +49,11 @@ let g:ale_lint_on_insert_leave = 0
 let g:ale_lint_on_enter = 0
 let g:ale_lint_delay = 1000
 let g:ale_c_parse_compile_commands = 1
+
+if isdirectory(expand('~/.fzf'))
+    set rtp+=~/.fzf
+    nnoremap <Leader>f :FZF<cr>
+endif
 
 if filereadable(expand("~/.vim/bundle/YouCompleteMe/autoload/youcompleteme.vim"))
     let g:ycm_auto_hover=''
@@ -102,6 +112,11 @@ nmap <Leader>bb <Plug>VimspectorBreakpoints
 let g:asyncrun_open = 12
 nmap <Leader>b :AsyncRun ~/.local/bin/bd<cr>
 nnoremap <leader>v :call asyncrun#quickfix_toggle(12)<CR>
+
+let g:NERDTreeWinSize=50
+" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
+autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
+    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
 
 autocmd BufWritePre * :%s/\s\+$//e
 
