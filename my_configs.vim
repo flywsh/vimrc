@@ -57,11 +57,15 @@ if isdirectory(expand('~/.fzf'))
 endif
 
 if filereadable(expand("~/.vim/bundle/YouCompleteMe/autoload/youcompleteme.vim"))
+    let g:ycm_autoclose_preview_window_after_completion=1
+    let g:ycm_autoclose_preview_window_after_insertion=1
     let g:ycm_auto_hover=''
-    let g:ycm_show_diagnostics_ui = 0
+    let g:ycm_show_diagnostics_ui=0
     let g:ycm_path_to_python_interpreter="/usr/bin/python3"
     let g:ycm_clangd_binary_path="/opt/bats/bin/clangd"
-    let g:ycm_clangd_args=['-j=1', '-pretty', '--pch-storage=memory', '--background-index=false']
+    let g:ycm_use_clangd=1
+    let g:ycm_clangd_args=['-j=1', '-pretty', '--pch-storage=memory', '--background-index', '--all-scopes-completion', '--completion-style=detailed', '-log=verbose']
+    let g:ycm_clangd_uses_ycmd_caching=1
     let g:ycm_confirm_extra_conf=0
 
     let g:ycm_filetype_blacklist = {
@@ -121,7 +125,8 @@ autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_
 
 autocmd BufWritePre * :%s/\s\+$//e
 
-au BufRead,BufNewFile *.inc set filetype=cpp
+au BufRead,BufNewFile *.inc  set filetype=cpp
+au BufRead,BufNewFile *.sqli set filetype=sql
 
 imap <C-h> <C-o>h
 imap <C-j> <C-o>j
