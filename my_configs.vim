@@ -43,13 +43,18 @@ let g:ctrlp_max_files=0
 let g:ctrlp_custom_ignore='node_modules\|DS_Store\|build'
 
 " ALE settings:
-let g:ale_cpp_clangd_executable='/opt/bats/bin/clangd'
-let g:ale_cpp_clangd_options='-j=1 --pch-storage=memory'
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_insert_leave = 0
-let g:ale_lint_on_enter = 0
-let g:ale_lint_delay = 1000
-let g:ale_c_parse_compile_commands = 1
+let g:ale_c_build_dir_names=['build', 'bin', '.']
+let g:ale_cpp_clang_options = '-std=c++20 -Wall'
+let g:ale_cpp_clangd_executable='clangd'
+let g:ale_cpp_clangd_options='-j=2 --pch-storage=memory'
+
+let g:ale_cpp_gcc_options='-std=c++20 -Wall'
+
+let g:ale_lint_on_text_changed='never'
+let g:ale_lint_on_insert_leave=0
+let g:ale_lint_on_enter=0
+let g:ale_lint_delay=1000
+let g:ale_c_parse_compile_commands=1
 
 if isdirectory(expand('~/.fzf'))
     set rtp+=~/.fzf
@@ -64,9 +69,12 @@ if filereadable(expand("~/.vim/bundle/YouCompleteMe/autoload/youcompleteme.vim")
     let g:ycm_path_to_python_interpreter="/usr/bin/python3"
     let g:ycm_clangd_binary_path="/opt/bats/bin/clangd"
     let g:ycm_use_clangd=1
-    let g:ycm_clangd_args=['-j=1', '-pretty', '--pch-storage=memory', '--background-index', '--all-scopes-completion', '--completion-style=detailed', '-log=verbose']
+    let g:ycm_clangd_args=['-j=1', '-pretty', '--pch-storage=memory', '--background-index', '--all-scopes-completion', '--completion-style=detailed']
     let g:ycm_clangd_uses_ycmd_caching=1
     let g:ycm_confirm_extra_conf=0
+
+    let g:ycm_keep_logfiles=0
+    let g:ycm_log_level='warning'
 
     let g:ycm_filetype_blacklist = {
           \ 'tagbar': 1,
