@@ -66,7 +66,7 @@ if filereadable(expand("~/.vim/bundle/YouCompleteMe/autoload/youcompleteme.vim")
     let g:ycm_autoclose_preview_window_after_insertion=1
     let g:ycm_auto_hover=''
     let g:ycm_show_diagnostics_ui=0
-    let g:ycm_path_to_python_interpreter="/usr/bin/python3"
+    let g:ycm_path_to_python_interpreter="python3"
     let g:ycm_clangd_binary_path="/opt/bats/bin/clangd"
     let g:ycm_use_clangd=1
     let g:ycm_clangd_args=['-j=1', '-pretty', '--pch-storage=memory', '--background-index', '--all-scopes-completion', '--completion-style=detailed']
