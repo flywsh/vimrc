@@ -110,6 +110,8 @@ endif
 let $TMPDIR='/var/tmp/'
 let maplocalleader='\\'
 
+let g:GIT_LENS_ENABLED=1
+
 let g:vimspector_enable_mappings='HUMAN'
 
 nnoremap <Leader>st :VimspectorReset<cr>
