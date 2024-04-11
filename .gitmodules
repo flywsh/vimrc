@@ -7,3 +7,6 @@
 [submodule "sources_forked/git-lens"]
 	path = sources_forked/git-lens
 	url = https://github.com/Eliot00/git-lens.vim.git
+[submodule "my_plugins/vim-tmux-navigator"]
+	path = my_plugins/vim-tmux-navigator
+	url = https://github.com/christoomey/vim-tmux-navigator.git
