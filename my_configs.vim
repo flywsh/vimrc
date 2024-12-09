@@ -37,6 +37,7 @@ nnoremap <Leader>av :AV<cr>
 nnoremap <Leader>at :AT<cr>
 
 cnoreabbrev Ack Ack!
+nnoremap <Leader>gg :Ack -a <cword><cr>
 nnoremap <Leader>ga :AckAdd
 nnoremap <Leader>gl :LAck
 nnoremap <Leader>gla :LAckAdd
