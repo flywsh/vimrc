@@ -67,7 +67,8 @@ if isdirectory(expand('~/.fzf'))
     nnoremap <Leader>f :FZF<cr>
 endif
 
-if filereadable(expand("~/.vim/bundle/YouCompleteMe/autoload/youcompleteme.vim"))
+let use_ycm = 0
+if (use_ycm == 1) && filereadable(expand("~/.vim/bundle/YouCompleteMe/autoload/youcompleteme.vim"))
     let g:ycm_autoclose_preview_window_after_completion=1
     let g:ycm_autoclose_preview_window_after_insertion=1
     let g:ycm_auto_hover=''
@@ -143,3 +144,5 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 au BufRead,BufNewFile *.inc  set filetype=cpp
 au BufRead,BufNewFile *.sqli set filetype=sql
+
+source ~/.vim_runtime/coc_config.vim

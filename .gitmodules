@@ -10,3 +10,6 @@
 [submodule "my_plugins/vim-tmux-navigator"]
 	path = my_plugins/vim-tmux-navigator
 	url = https://github.com/christoomey/vim-tmux-navigator.git
+[submodule "my_plugins/coc.nvim"]
+	path = my_plugins/coc.nvim
+	url = https://github.com/neoclide/coc.nvim.git
