@@ -17,7 +17,7 @@ set list
 set listchars=tab:>-
 
 set path+=**
-set makeprg=bash\ bd
+set makeprg=bash\ md
 
 let g:lightline = {'colorscheme': 'PaperColor'}
 if !has('g:lightline.component')
@@ -132,7 +132,7 @@ xmap <Leader>i <Plug>VimspectorBalloonEval
 nmap <Leader>bb <Plug>VimspectorBreakpoints
 
 let g:asyncrun_open = 12
-nmap <Leader>b :AsyncRun ~/.local/bin/bd<cr>
+nmap <Leader>b :AsyncRun ~/.local/bin/md<cr>
 nnoremap <leader>v :call asyncrun#quickfix_toggle(12)<CR>
 
 let g:NERDTreeWinSize=50
