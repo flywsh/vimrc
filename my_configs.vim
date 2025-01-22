@@ -48,19 +48,19 @@ nnoremap <Leader>dp :diffput<cr>
 let g:ctrlp_max_files=0
 let g:ctrlp_custom_ignore='node_modules\|DS_Store\|build'
 
-" ALE settings:
-let g:ale_c_build_dir_names=['build', 'bin', '.']
-let g:ale_cpp_clang_options = '-std=c++20 -Wall'
-let g:ale_cpp_clangd_executable='clangd'
-let g:ale_cpp_clangd_options='-j=2 --pch-storage=memory'
-
-let g:ale_cpp_gcc_options='-std=c++20 -Wall'
-
-let g:ale_lint_on_text_changed='never'
-let g:ale_lint_on_insert_leave=0
-let g:ale_lint_on_enter=0
-let g:ale_lint_delay=1000
-let g:ale_c_parse_compile_commands=1
+" " ALE settings:
+" let g:ale_c_build_dir_names=['build', 'bin', '.']
+" let g:ale_cpp_clang_options = '-std=c++20 -Wall'
+" let g:ale_cpp_clangd_executable='clangd'
+" let g:ale_cpp_clangd_options='-j=2 --pch-storage=memory'
+"
+" let g:ale_cpp_gcc_options='-std=c++20 -Wall'
+"
+" let g:ale_lint_on_text_changed='never'
+" let g:ale_lint_on_insert_leave=0
+" let g:ale_lint_on_enter=0
+" let g:ale_lint_delay=1000
+" let g:ale_c_parse_compile_commands=1
 
 if isdirectory(expand('~/.fzf'))
     set rtp+=~/.fzf
